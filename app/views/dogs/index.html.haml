@@ -1,0 +1,41 @@
+- model_class = Dog
+.page-header
+  %h1= t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:genre)
+      %th= model_class.human_attribute_name(:registered)
+      %th= model_class.human_attribute_name(:date_of_birth)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:owner_id)
+      %th= model_class.human_attribute_name(:last_time)
+      %th= model_class.human_attribute_name(:breed_id)
+      %th= model_class.human_attribute_name(:created_at)
+      %th= t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @dogs.each do |dog|
+      %tr
+        %td= link_to dog.id, dog_path(dog)
+        %td= dog.genre
+        %td= dog.registered
+        %td= dog.date_of_birth
+        %td= dog.name
+        %td= dog.owner_id
+        %td= dog.last_time
+        %td= dog.breed_id
+        %td= l dog.created_at
+        %td
+          = link_to t('.show', :default => t("helpers.links.show")), |
+            dog_path(dog), :class => 'btn btn-default btn-xs'        |
+          = link_to t('.edit', :default => t("helpers.links.edit")), |
+            edit_dog_path(dog), :class => 'btn btn-default btn-xs'   |
+          = link_to t('.destroy', :default => t("helpers.links.destroy")),                                               |
+            dog_path(dog),                                                                                               |
+            :method => :delete,                                                                                          |
+            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, |
+            :class => 'btn btn-xs btn-danger'                                                                            |
+= link_to t('.new', :default => t("helpers.links.new")), |
+  new_dog_path,                                          |
+  :class => 'btn btn-primary'                            |

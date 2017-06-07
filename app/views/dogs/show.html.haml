@@ -1,0 +1,48 @@
+- model_class = Dog
+.page-header
+  %h1= t '.title', :default => model_class.model_name.human.titleize
+%dl.dl-horizontal
+  %dt
+    %strong
+      = model_class.human_attribute_name(:genre)
+      \:
+  %dd= @dog.genre
+  %dt
+    %strong
+      = model_class.human_attribute_name(:registered)
+      \:
+  %dd= @dog.registered
+  %dt
+    %strong
+      = model_class.human_attribute_name(:date_of_birth)
+      \:
+  %dd= @dog.date_of_birth
+  %dt
+    %strong
+      = model_class.human_attribute_name(:name)
+      \:
+  %dd= @dog.name
+  %dt
+    %strong
+      = model_class.human_attribute_name(:owner_id)
+      \:
+  %dd= @dog.owner_id
+  %dt
+    %strong
+      = model_class.human_attribute_name(:last_time)
+      \:
+  %dd= @dog.last_time
+  %dt
+    %strong
+      = model_class.human_attribute_name(:breed_id)
+      \:
+  %dd= @dog.breed_id
+= link_to t('.back', :default => t("helpers.links.back")), |
+  dogs_path, :class => 'btn btn-default'                   |
+= link_to t('.edit', :default => t("helpers.links.edit")), |
+  edit_dog_path(@dog), :class => 'btn btn-default'         |
+= link_to t('.destroy', :default => t("helpers.links.destroy")),                                               |
+  dog_path(@dog),                                                                                              |
+  :method => 'delete',                                                                                         |
+  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, |
+  :class => 'btn btn-danger'                                                                                   |

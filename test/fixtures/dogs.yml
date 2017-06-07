@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genre: MyString
+  registered: false
+  date_of_birth: 2017-06-07
+  name: MyString
+  owner: one
+  last_time: 2017-06-07
+  breed: one
+
+two:
+  genre: MyString
+  registered: false
+  date_of_birth: 2017-06-07
+  name: MyString
+  owner: two
+  last_time: 2017-06-07
+  breed: two

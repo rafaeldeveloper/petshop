@@ -1,0 +1,51 @@
+= form_for @dog, :html => { :class => "form-horizontal dog" } do |f|
+  - if @dog.errors.any?
+    #error_expl.panel.panel-danger
+      .panel-heading
+        %h3.panel-title
+          = pluralize(@dog.errors.count, "error")
+          prohibited this dog from being saved:
+      .panel-body
+        %ul
+          - @dog.errors.full_messages.each do |msg|
+            %li= msg
+  .form-group
+    = f.label :genre, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :genre, :class => 'form-control'
+    = f.error_span(:genre)
+  .form-group
+    = f.label :registered, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :registered, :class => 'form-control'
+    = f.error_span(:registered)
+  .form-group
+    = f.label :date_of_birth, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :date_of_birth, :class => 'form-control'
+    = f.error_span(:date_of_birth)
+  .form-group
+    = f.label :name, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :name, :class => 'form-control'
+    = f.error_span(:name)
+  .form-group
+    = f.label :owner_id, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :owner_id, :class => 'form-control'
+    = f.error_span(:owner_id)
+  .form-group
+    = f.label :last_time, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :last_time, :class => 'form-control'
+    = f.error_span(:last_time)
+  .form-group
+    = f.label :breed_id, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :breed_id, :class => 'form-control'
+    = f.error_span(:breed_id)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil, :class => 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), |
+        dogs_path, :class => 'btn btn-default'                       |

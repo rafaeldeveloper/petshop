@@ -1,0 +1,9 @@
+- model_class = Dog
+.panel.panel-default 
+  .panel-heading
+    %h1= t '.text-center', :default => [:'helpers.titles.new', 'Novo %{model}'], :model => model_class.model_name.human.titleize
+  .panel-body  
+    = render :partial => 'form'
+
+
+
